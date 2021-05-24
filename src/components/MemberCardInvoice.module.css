@@ -1,0 +1,24 @@
+.flex {
+    display: flex;
+    border: 2px solid green;
+    justify-content: center;
+}
+
+.box {
+    display: flex;
+    border: 2px solid red;
+    width: 40%;
+    justify-content: space-around;
+    /* margin: auto; */
+}
+
+.basis {
+    flex-basis: 20%;
+    text-align: left;
+}
+
+.historyBox {
+    border: 2px solid red;
+    margin-bottom: 1%;
+    padding: 1%;
+}

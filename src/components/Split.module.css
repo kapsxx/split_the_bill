@@ -1,0 +1,10 @@
+.box {
+    display: flex;
+    width: 35%;
+    margin: auto;
+    border: 2px solid red;
+    flex-wrap: wrap;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    justify-content: space-evenly;
+}
