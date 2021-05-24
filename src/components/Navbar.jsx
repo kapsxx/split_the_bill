@@ -1,8 +1,9 @@
 import {Link} from "react-router-dom";
+import styles from "./Navbar.module.css";
 
 function Navbar(){
     return (
-        <div style={{display: "flex", justifyContent: "space-around"}}>
+        <div className={styles.flex}>
             <div>
                 <Link to="/">Home</Link>
             </div>
