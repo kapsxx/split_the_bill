@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, Suspense, useState } from "react"
 
 export const DataContext = createContext({
     membersList: [],
@@ -13,11 +13,14 @@ export const DataContext = createContext({
     settlementArr: [],
     setSettlementArr: ()=>{},
     statement: {},
-    setStatement: ()=>{}
+    setStatement: ()=>{},
+    empty: false,
+    setEmpty: ()=>{}
 })
 
 function DataContextProvider({children}){
 
+    const[empty, setEmpty] = useState(false);
     const[membersList, setMembersList] = useState([]);
     const[createGroupFlag, setCreateGroupFlag] = useState(false);
     const[values, setValues] = useState({});
@@ -128,7 +131,9 @@ function DataContextProvider({children}){
         settleFlag: settleFlag,
         setSettleFlag: setSettleFlag,
         statement: statement,
-        setStatement: setStatement
+        setStatement: setStatement,
+        empty: empty,
+        setEmpty: setEmpty
     }
 
     return (

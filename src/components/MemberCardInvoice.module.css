@@ -1,15 +1,29 @@
 .flex {
     display: flex;
-    border: 2px solid green;
+    /* border: 2px solid green; */
     justify-content: center;
 }
 
 .box {
     display: flex;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 40%;
     justify-content: space-around;
     /* margin: auto; */
+    background-color: #FDCBFC70;
+    font-weight: bold;
+    padding: 0.5%;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-top: 0.5%;
+}
+
+.box input {
+    font-weight: bold;
+    border-radius: 8px;
+    border: 0px;
+    padding: 0.5% 2%;
 }
 
 .basis {
@@ -21,4 +35,22 @@
     border: 2px solid red;
     margin-bottom: 1%;
     padding: 1%;
+}
+
+.history {
+    /* background-color: #ff477e; */
+    /* background-color: white; */
+    /* background-color: #80ffdb10; */
+    background-color: rgb(220,255,245);
+    border: 0px;
+    padding: 0px;
+    margin-top: 30%;
+}
+
+.history:hover {
+    cursor: pointer;
+}
+
+.history img {
+    width: 30px;
 }

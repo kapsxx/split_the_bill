@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../context/DataContextProvider";
 import styles from "./MemberCardInvoice.module.css";
 import HistoryOf from "./HistoryOf.jsx";
+import historyImage from "../images/history.png";
 
 function MemberCardInvoice({person, id}){
 
@@ -50,7 +51,7 @@ function MemberCardInvoice({person, id}){
         <>
         <div className={styles.flex}>
             <div>
-                <button onClick={()=>setHistory(!history)}>History</button>
+                <button className={styles.history} onClick={()=>setHistory(!history)}> <img src={historyImage}/> </button>
             </div>
             <div className={styles.box}>
                 <div className={styles.basis}>{person}</div>
@@ -59,9 +60,9 @@ function MemberCardInvoice({person, id}){
                 <button disabled={amount==="" || bill===""} onClick={()=>handleAdd(bill, amount, person)}>ADD</button>
             </div>
         </div>
-        <div className={styles.historyBox}>
+        {history && <div className={styles.historyBox}>
             <HistoryOf history={history} person={person} invoice={invoice} setInvoice={setInvoice} amount={amount} setAmount={setAmount} bill={bill} setBill={setBill} />
-        </div>
+        </div>}
         </>
     )
 }
