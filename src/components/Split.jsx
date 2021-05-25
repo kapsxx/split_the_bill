@@ -8,7 +8,7 @@ import EmptyPockets from "../images/emptypockets.png";
 
 function Split(){
 
-    const{empty, setEmpty, membersList, setMembersList, setCreateGroupFlag, createGroupFlag, settlementArr, handleSettle, settleFlag, setSettleFlag} = useContext(DataContext);
+    const{statement, empty, setEmpty, membersList, setMembersList, setCreateGroupFlag, createGroupFlag, settlementArr, handleSettle, settleFlag, setSettleFlag} = useContext(DataContext);
     const[member, setMember] = useState("");
 
     //====================================================
@@ -61,7 +61,7 @@ function Split(){
         {
             membersList.map((person, i)=><MemberCardInvoice key={i} id={i} person={person} />)
         }
-        <button className={styles.custombtn} style={{marginTop: "1%"}} onClick={handleSettle}>Settle</button>
+        <button disabled={statement.comodity.length===0} className={styles.custombtn} style={{marginTop: "1%"}} onClick={handleSettle}>Settle</button>
         {
             settlementArr?.map((declaration, i)=><div key={i}>{declaration}</div>)
         }

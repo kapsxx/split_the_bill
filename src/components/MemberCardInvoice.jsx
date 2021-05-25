@@ -3,6 +3,8 @@ import { DataContext } from "../context/DataContextProvider";
 import styles from "./MemberCardInvoice.module.css";
 import HistoryOf from "./HistoryOf.jsx";
 import historyImage from "../images/history.png";
+import {motion} from "framer-motion";
+import {animate_value, initial_value, transition_value} from "./MemberCardInvoiceFramerMotion.js";
 
 function MemberCardInvoice({person, id}){
 
@@ -45,8 +47,6 @@ function MemberCardInvoice({person, id}){
         // console.log(id, person);
     }
 
-
-
     return (
         <>
         <div className={styles.flex}>
@@ -60,9 +60,9 @@ function MemberCardInvoice({person, id}){
                 <button disabled={amount==="" || bill===""} onClick={()=>handleAdd(bill, amount, person)}>ADD</button>
             </div>
         </div>
-        {history && <div className={styles.historyBox}>
-            <HistoryOf history={history} person={person} invoice={invoice} setInvoice={setInvoice} amount={amount} setAmount={setAmount} bill={bill} setBill={setBill} />
-        </div>}
+        {history && <motion.div animate={animate_value} initial={initial_value} transition={transition_value} className={styles.historyBox}>
+                        <HistoryOf history={history} person={person} invoice={invoice} setInvoice={setInvoice} amount={amount} setAmount={setAmount} bill={bill} setBill={setBill} />
+                    </motion.div>}
         </>
     )
 }

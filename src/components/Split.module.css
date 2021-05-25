@@ -11,12 +11,14 @@
     /* background-color: #fdcbfc70; */
     background-color: #8AF7E450;
     padding: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .padding {
     padding: 0.5% 1%;
     border: 0px;
     font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .padding:nth-child(1) {
@@ -38,6 +40,13 @@
     border: 0px;
     font-weight: bold;
     background-color: #48cae4ad;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 2%;
+}
+
+.create_grp_btn:hover, .padding:nth-child(2):hover {
+    cursor: pointer;
+    background-color: #48cae4d5;
 }
 
 .empty {
@@ -48,4 +57,5 @@
     margin-bottom: 2%;
     border-radius: 8px;
     padding: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
