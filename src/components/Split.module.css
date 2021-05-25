@@ -19,6 +19,7 @@
     border: 0px;
     font-weight: bold;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 3.2%;
 }
 
 .padding:nth-child(1) {
@@ -44,7 +45,7 @@
     margin-bottom: 2%;
 }
 
-.create_grp_btn:hover, .padding:nth-child(2):hover {
+.create_grp_btn:hover, .padding:nth-child(2):hover, .custombtn:hover {
     cursor: pointer;
     background-color: #48cae4d5;
 }
@@ -58,4 +59,13 @@
     border-radius: 8px;
     padding: 2%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.custombtn {
+    padding: 0.5% 1%;
+    border: 0px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    background-color: #48cae4ad;
 }

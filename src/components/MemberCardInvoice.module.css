@@ -33,17 +33,14 @@
 }
 
 .historyBox {
-    border: 2px solid red;
-    margin-bottom: 1%;
-    padding: 1%;
+    /* border: 2px solid #ff0000; */
+    /* margin-bottom: 1%; */
     box-sizing: border-box;
     overflow: hidden;
+    /* padding: -5%; */
 }
 
 .history {
-    /* background-color: #ff477e; */
-    /* background-color: white; */
-    /* background-color: #80ffdb10; */
     background-color: rgb(220,255,245);
     border: 0px;
     padding: 0px;

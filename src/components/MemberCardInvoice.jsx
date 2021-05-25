@@ -55,8 +55,8 @@ function MemberCardInvoice({person, id}){
             </div>
             <div className={styles.box}>
                 <div className={styles.basis}>{person}</div>
-                <input type="number" min={0} step={0} onChange={(e)=>setAmount(e.target.value)} value={amount} placeholder="Amount Paid"/>
                 <input type="text" onChange={(e)=>setBill(e.target.value)} value={bill} placeholder="Bill"/>
+                <input type="number" min={0} step={0} onChange={(e)=>setAmount(e.target.value)} value={amount} placeholder="Amount Paid"/>
                 <button disabled={amount==="" || bill===""} onClick={()=>handleAdd(bill, amount, person)}>ADD</button>
             </div>
         </div>

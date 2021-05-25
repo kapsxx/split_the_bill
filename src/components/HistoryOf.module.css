@@ -1,0 +1,43 @@
+.flex {
+    display: flex;
+    width: 40%;
+    /* border: 2px solid red; */
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: bold;
+    background-color: white;
+    margin: 0.7% auto;
+    /* margin: auto; */
+}
+
+.flex > div {
+    flex-basis: 50%;
+    /* border: 2px solid green; */
+}
+
+.flex > div:nth-child(1), .flex > div:nth-child(2) {
+    background-color: #03045e;
+    color: white;
+}
+
+.flex > div:nth-child(3) > div, .flex > div:nth-child(4) > div {
+    /* border: 2px solid yellow; */
+    padding: 0% 5%;
+    background-color: #e9ecef;
+}
+
+.flex > div:nth-child(3) > div {
+    margin: 2% 1% 2% 2%;
+}
+
+.flex > div:nth-child(4) > div {
+    margin: 2% 2% 2% 1%;
+}
+
+.flex > div:nth-child(3) > div {
+    text-align: left;
+}
+
+.flex > div:nth-child(4) > div {
+    text-align: right;
+}
