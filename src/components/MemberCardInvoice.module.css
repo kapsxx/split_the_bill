@@ -2,11 +2,12 @@
     display: flex;
     /* border: 2px solid green; */
     justify-content: center;
+    /* border: 2px solid red; */
 }
 
 .box {
     display: flex;
-    /* border: 2px solid red; */
+    /* border: 2px solid green; */
     width: 40%;
     justify-content: space-around;
     /* margin: auto; */
@@ -17,6 +18,7 @@
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     margin-top: 0.5%;
+    overflow: hidden;
     /* box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
@@ -25,11 +27,18 @@
     border-radius: 8px;
     border: 0px;
     padding: 0.5% 2%;
+    width: 30%;
+}
+
+.box button {
+    width: 10%;
+    overflow: hidden;
 }
 
 .basis {
-    flex-basis: 20%;
+    flex-basis: 18%;
     text-align: left;
+    overflow: hidden;
 }
 
 .historyBox {
@@ -54,3 +63,43 @@
 .history img {
     width: 30px;
 }
+
+
+
+/* ***************************************************************************************************************** */
+/* ************************************************RESPONSIVE******************************************************* */
+/* **************************************************DESIGN********************************************************* */
+/* ***************************************************************************************************************** */
+
+@media only screen and (max-width: 1050px) {
+    .box {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .box {
+        width: 85%;
+        /* border: 2px solid blue; */
+        overflow: hidden;
+        font-size: 15px;
+    }
+
+    .box > input {
+        /* font-weight: bold; */
+        border-radius: 6px;
+        /* border: 0px; */
+        padding: 0.5% 2%;
+        width: 25%;
+        font-size: 12px;
+    }
+
+    .box > button {
+        font-size: 8px;
+    }
+
+    .historyBox h2 {
+        font-size: 15px;
+    }
+}
+

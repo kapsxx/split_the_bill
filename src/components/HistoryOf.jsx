@@ -31,16 +31,13 @@ function HistoryOf({history, person, invoice, setInvoice, amount, setAmount, bil
                 }
 
                 <div>
-
-
-
                     {
                             invoice.amountPaid.map((cost, i)=><div key={i}>{invoice.billList[i]}</div>)
                     }
                 </div>
                 <div>
                     {
-                            invoice.amountPaid.map((cost, i)=><div key={i}>{cost}.00</div>)
+                            invoice.amountPaid.map((cost, i)=><div key={i}>{"Rs. " + cost}.00</div>)
                     }
                 </div>
             </div>

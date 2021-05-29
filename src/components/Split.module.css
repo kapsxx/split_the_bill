@@ -20,6 +20,7 @@
     font-weight: bold;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 3.2%;
+    /* border: 2px solid red; */
 }
 
 .padding:nth-child(1) {
@@ -45,7 +46,7 @@
     margin-bottom: 2%;
 }
 
-.create_grp_btn:hover, .padding:nth-child(2):hover, .custombtn:hover {
+.create_grp_btn:hover, .padding:nth-child(2):hover, .custombtn:hover, .verdictbtn:hover {
     cursor: pointer;
     background-color: #48cae4d5;
 }
@@ -68,4 +69,96 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 8px;
     background-color: #48cae4ad;
+    margin-top: 3.2%;
+}
+
+.bottommargin {
+    margin-bottom: 3%;
+}
+
+.verdict {
+    /* border: 2px solid red; */
+    padding: 1% 0%;
+}
+
+.paid_parent {
+    /* border: 2px solid black; */
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.verdictbtn {
+    padding: 0.5% 1%;
+    border: 0px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    background-color: #48cae4ad;
+    box-sizing: border-box;
+    width: 47%;
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+
+
+
+/* ***************************************************************************************************************** */
+/* ************************************************RESPONSIVE******************************************************* */
+/* **************************************************DESIGN********************************************************* */
+/* ***************************************************************************************************************** */
+
+@media only screen and (max-width: 1050px) {
+    .verdictbtn {
+        width: 80%;
+        margin-top: 3%;
+        padding: 1% 0%;
+    }
+
+    .custombtn {
+        width: 20%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .padding, .create_grp_btn, .custombtn {
+        width: 80%;
+        /* border: 2px solid red; */
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 12px;
+    }
+
+    .padding:nth-child(1) {
+        margin-top: 8%;
+        padding: 1% 3%;
+    }
+
+    .padding:nth-child(2), .create_grp_btn, .custombtn {
+        margin-top: 2%;
+        padding: 1% 3%;
+        margin-bottom: 5%;
+    }
+
+    .padding:nth-child(2) {
+        margin-bottom: 2%;
+    }
+
+    .empty {
+        width: 80%;
+        margin-bottom: 5%;
+    }
+
+    .empty > h2 {
+        font-size: 10px;
+    }
+
+    .box {
+        width: 80%;
+    }
+
+    .verdictbtn {
+        width: 90%;
+        margin-top: 3%;
+        padding: 1.5% 0%;
+    }
 }

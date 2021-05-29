@@ -1,14 +1,17 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContextProvider";
 import MemberCard from "./MemberCard.jsx";
 import styles from "./Split.module.css";
 import MemberCardInvoice from "./MemberCardInvoice.jsx";
-import FinalStatement from "./FinalStatement.jsx";
 import EmptyPockets from "../images/emptypockets.png";
+import DescriptiveBill from "./DescriptiveBill";
+import PaidNotPaid from "./PaidNotPaid.jsx";
+import {motion} from "framer-motion";
+import {animate_value, initial_value, transition_value} from "./SplitFramerMotion.js";
 
 function Split(){
 
-    const{statement, empty, setEmpty, membersList, setMembersList, setCreateGroupFlag, createGroupFlag, settlementArr, handleSettle, settleFlag, setSettleFlag} = useContext(DataContext);
+    const{statement, empty, setEmpty, membersList, setMembersList, setCreateGroupFlag, createGroupFlag, settlementArr, handleSettle, finalFlag, verdictFlag, setVerdictFlag} = useContext(DataContext);
     const[member, setMember] = useState("");
 
     //====================================================
@@ -37,7 +40,7 @@ function Split(){
 
             {
                 !empty && <div className={styles.empty} style={{backgroundColor: "white"}}>
-                                <img src={EmptyPockets}/>
+                                <img src={EmptyPockets} alt=""/>
                                 <h2>Start adding members to your group and spend your money wisely! Need atleast 2 members to create a group.</h2>
                            </div>
             }
@@ -57,16 +60,30 @@ function Split(){
 
     return (
         <>
-        <button className={styles.custombtn} style={{marginBottom: "1%"}} disabled={membersList.length<2} onClick={()=>setCreateGroupFlag(false)}>Back</button>
         {
-            membersList.map((person, i)=><MemberCardInvoice key={i} id={i} person={person} />)
-        }
-        <button disabled={statement.comodity.length===0} className={styles.custombtn} style={{marginTop: "1%"}} onClick={handleSettle}>Settle</button>
-        {
-            settlementArr?.map((declaration, i)=><div key={i}>{declaration}</div>)
+            !finalFlag && <button className={styles.custombtn} style={{marginBottom: "1%"}} disabled={membersList.length<2} onClick={()=>setCreateGroupFlag(false)}>Back</button>
         }
         {
-            settleFlag && <FinalStatement/>
+            !finalFlag && membersList.map((person, i)=><MemberCardInvoice key={i} id={i} person={person} />)
+        }
+        {
+            !finalFlag && <button disabled={statement.comodity.length===0} className={`${styles.custombtn} ${styles.bottommargin}`} style={{marginTop: "1%"}} onClick={handleSettle}>Settle</button>
+        }
+
+        {
+            finalFlag && <DescriptiveBill/>
+        }
+
+        {/* {
+            verdictFlag && settlementArr?.map((declaration, i)=><h2 onClick={()=>setHasPaid(!hasPaid)} className={hasPaid ? `${styles.verdict} ${styles.paid}` : `${styles.verdict} ${styles.not_paid}`} key={i}>{declaration}</h2>)
+        } */}
+
+        {
+            verdictFlag && <motion.div animate={animate_value} initial={initial_value} transition={transition_value} className={styles.paid_parent}>{settlementArr?.map((declaration, i)=><PaidNotPaid key={i} declaration={declaration}/>)}</motion.div>
+        }
+
+        {
+            finalFlag && <button className={styles.verdictbtn} onClick={()=>setVerdictFlag(!verdictFlag)}>{!verdictFlag ? "Verdict" : "Collapse"}</button>
         }
         </>
     )

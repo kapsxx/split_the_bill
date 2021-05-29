@@ -8,6 +8,7 @@
     background-color: white;
     margin: 0.7% auto;
     /* margin: auto; */
+    border-radius: 8px;
 }
 
 .flex > div {
@@ -16,8 +17,20 @@
 }
 
 .flex > div:nth-child(1), .flex > div:nth-child(2) {
-    background-color: #03045e;
+    background-color: #014e86;
     color: white;
+}
+
+.flex > div:nth-child(1) {
+    border-top-left-radius: 8px;
+}
+
+.flex > div:nth-child(2) {
+    border-top-right-radius: 8px;
+}
+
+.flex > div:nth-child(3) > div, .flex > div:nth-child(4) > div {
+    border-radius: 6px;
 }
 
 .flex > div:nth-child(3) > div, .flex > div:nth-child(4) > div {
@@ -40,4 +53,26 @@
 
 .flex > div:nth-child(4) > div {
     text-align: right;
+}
+
+
+
+/* ***************************************************************************************************************** */
+/* ************************************************RESPONSIVE******************************************************* */
+/* **************************************************DESIGN********************************************************* */
+/* ***************************************************************************************************************** */
+
+
+
+@media only screen and (max-width: 1050px) {
+    .flex {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .flex {
+        width: 90%;
+        font-size: 12px;
+    }
 }

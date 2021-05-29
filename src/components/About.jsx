@@ -1,5 +1,4 @@
-import styles from "./About.module.css";
-import {motion, useSpring} from "framer-motion";
+import {motion} from "framer-motion";
 import { useState } from "react";
 
 function About(){

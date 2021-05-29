@@ -1,4 +1,5 @@
-import { createContext, Suspense, useState } from "react"
+import { createContext, useState } from "react"
+import {v4 as uuid} from "uuid";
 
 export const DataContext = createContext({
     membersList: [],
@@ -8,14 +9,22 @@ export const DataContext = createContext({
     values: [[]],
     setValues: ()=>{},
     handleSettle: ()=>{},
-    settleFlag: false,
-    setSettleFlag: ()=>{},
+    // settleFlag: false,
+    // setSettleFlag: ()=>{},
     settlementArr: [],
     setSettlementArr: ()=>{},
     statement: {},
     setStatement: ()=>{},
     empty: false,
-    setEmpty: ()=>{}
+    setEmpty: ()=>{},
+    finalFlag: false,
+    setFinalFlag: ()=>{},
+    invoiceId: "xyz123",
+    setInvoiceId: ()=>{},
+    verdictFlag: false,
+    setVerdictFlag: ()=>{},
+    invoiceDate: "29-02-2021",
+    setInvoiceDate: ()=>{}
 })
 
 function DataContextProvider({children}){
@@ -25,15 +34,22 @@ function DataContextProvider({children}){
     const[createGroupFlag, setCreateGroupFlag] = useState(false);
     const[values, setValues] = useState({});
     const[settlementArr, setSettlementArr] = useState([]);
-    const[settleFlag, setSettleFlag] = useState(false);
+    // const[settleFlag, setSettleFlag] = useState(false);
     const[statement, setStatement] = useState({
         comodity: [],
         price: [],
         paidBy: []
     })
+    const[finalFlag, setFinalFlag] = useState(false);
+    const[invoiceId, setInvoiceId] = useState("");
+    const[invoiceDate, setInvoiceDate] = useState("");
+    const[verdictFlag, setVerdictFlag] = useState(false);
 
     const handleSettle = ()=>{
-        setSettleFlag(!settleFlag);
+        // setSettleFlag(!settleFlag);
+        setInvoiceDate(new Date().toLocaleDateString());
+        setInvoiceId(uuid());
+        setFinalFlag(true);
 
         console.log(values);
         console.log(membersList);
@@ -75,8 +91,8 @@ function DataContextProvider({children}){
             amount[mxCredit] -= min;
             amount[mxDebit] += min;
         
-            console.log("Person " + (membersList[mxDebit] ? membersList[mxDebit] : "God") + " pays " + Math.ceil(min) + " to " + "Person " + (membersList[mxCredit] ? membersList[mxCredit] : "God"));
-            let temp = "Person " + (membersList[mxDebit] ? membersList[mxDebit] : "God") + " pays " + Math.ceil(min) + " to " + "Person " + (membersList[mxCredit] ? membersList[mxCredit] : "God");
+            // console.log("Person " + (membersList[mxDebit] ? membersList[mxDebit] : "God") + " pays " + Math.ceil(min) + " to " + "Person " + (membersList[mxCredit] ? membersList[mxCredit] : "God"));
+            let temp = (membersList[mxDebit] ? membersList[mxDebit] : "God") + " pays " + "Rs. " + Math.ceil(min) + " to " + (membersList[mxCredit] ? membersList[mxCredit] : "God");
 
             // setSettlementArr([...settlementArr, temp]);
             setSettlementArr((prev)=>[...prev, temp]);
@@ -128,12 +144,20 @@ function DataContextProvider({children}){
         handleSettle: handleSettle,
         settlementArr: settlementArr,
         setSettlementArr: setSettlementArr,
-        settleFlag: settleFlag,
-        setSettleFlag: setSettleFlag,
+        // settleFlag: settleFlag,
+        // setSettleFlag: setSettleFlag,
         statement: statement,
         setStatement: setStatement,
         empty: empty,
-        setEmpty: setEmpty
+        setEmpty: setEmpty,
+        finalFlag: finalFlag,
+        setFinalFlag: setFinalFlag,
+        invoiceId: invoiceId,
+        setInvoiceId: setInvoiceId,
+        verdictFlag: verdictFlag,
+        setVerdictFlag: setVerdictFlag,
+        invoiceDate: invoiceDate,
+        setInvoiceDate: setInvoiceDate
     }
 
     return (

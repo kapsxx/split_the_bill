@@ -51,7 +51,7 @@ function MemberCardInvoice({person, id}){
         <>
         <div className={styles.flex}>
             <div>
-                <button className={styles.history} onClick={()=>setHistory(!history)}> <img src={historyImage}/> </button>
+                <button className={styles.history} onClick={()=>setHistory(!history)}> <img src={historyImage} alt=""/> </button>
             </div>
             <div className={styles.box}>
                 <div className={styles.basis}>{person}</div>

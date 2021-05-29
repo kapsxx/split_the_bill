@@ -1,0 +1,12 @@
+.verdict {
+    /* border: 2px solid red; */
+    padding: 1% 0%;
+}
+
+.paid {
+    background-color: #70e000;
+}
+
+.not_paid {
+    background-color: #ff0a54;
+}
