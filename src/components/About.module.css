@@ -5,3 +5,33 @@
 .element:hover {
     transform: translate(0, 200px);
 } */
+
+.container {
+    /* border: 2px solid red; */
+    height: 85vh;
+    line-height: 200%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.sub_cont {
+    /* border: 2px solid green; */
+    width: 80%;
+    font-size: 1.2em;
+    font-family: 'Baloo Bhai 2', cursive;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 5%;
+    text-align: left;
+    height: 80%;
+    overflow-y: scroll;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.sub_cont::-webkit-scrollbar {
+    display: none;
+}
