@@ -1,6 +1,6 @@
 # split_the_bill
 
-This application focuses on implementing the idea of separating a bill equally among different members of a group. Entire application is created using react along with some parts being designed using Material UI.
+An end-to-end application that focuses on implementing the idea of separating a bill equally among different members of a group. Entire application is created using react along with some parts being designed using Material UI. The backend for this application is separately maintained in <a href="https://github.com/kapsxx/split_the_bill_backend" >split_the_bill_backend</a>.
 
 ## Steps to run the project locally
 * Run <a href="https://github.com/kapsxx/split_the_bill_backend" >split_the_bill_backend</a> before running this project
