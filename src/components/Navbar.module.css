@@ -1,20 +1,23 @@
 .flex {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     /* border: 2px solid red; */
-    padding: 1.5%;
+    padding: 1%;
     position: sticky;
-    top: 0px;
+    top: 10px;
     box-sizing: border-box;
     /* background-color: green; */
     background-color: #8AF7E4;
     background-color: #c19ee0;
     background-image: linear-gradient(to right, #c19ee0, #8AF7E4);
+    /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) */
 }
 
 .flex a {
     /* border: 2px solid red; */
-    padding: 2%;
+    padding: 0% 20%;
+    box-sizing: border-box;
     text-decoration: none;
     color: black;
     /* background-color: red; */
@@ -22,8 +25,47 @@
     font-weight: bold;
 }
 
+.link_parent {
+    /* border: 2px solid red; */
+    padding: 0% 2%;
+    box-sizing: border-box;
+}
+
 .flex a:hover {
-    letter-spacing: 1px;
+    /* letter-spacing: 1px;
     transition: all 0.3s;
-    opacity: 1;
+    opacity: 1; */
+
+    border-bottom: 4px solid #48cae4ad;
+}
+
+.flex a:active {
+    border-bottom: 4px solid #c19ee0;
+}
+
+.flex > div:last-child {
+    /* margin-top: 1%; */
+    /* margin-bottom: 1%; */
+    /* border: 2px solid red; */
+}
+
+/* ***************************************************************************************************************** */
+/* ************************************************RESPONSIVE******************************************************* */
+/* **************************************************DESIGN********************************************************* */
+/* ***************************************************************************************************************** */
+
+@media only screen and (max-width: 1050px) {
+
+}
+
+@media only screen and (max-width: 700px) {
+    .flex {
+        flex-wrap: wrap;
+    }
+
+    .flex > div:last-child {
+        margin-top: 3%;
+        margin-bottom: 3%;
+        /* border: 2px solid red; */
+    }
 }

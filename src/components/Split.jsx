@@ -8,10 +8,11 @@ import DescriptiveBill from "./DescriptiveBill";
 import PaidNotPaid from "./PaidNotPaid.jsx";
 import {motion} from "framer-motion";
 import {animate_value, initial_value, transition_value} from "./SplitFramerMotion.js";
+import { Link } from "react-router-dom";
 
 function Split(){
 
-    const{statement, empty, setEmpty, membersList, setMembersList, setCreateGroupFlag, createGroupFlag, settlementArr, handleSettle, finalFlag, verdictFlag, setVerdictFlag} = useContext(DataContext);
+    const{statement, empty, setEmpty, membersList, setMembersList, setCreateGroupFlag, createGroupFlag, settlementArr, handleSettle, finalFlag, verdictFlag, setVerdictFlag, isBkLoading, handleUpload, isUploaded, auth} = useContext(DataContext);
     const[member, setMember] = useState("");
 
     //====================================================
@@ -34,7 +35,7 @@ function Split(){
             <>
             {/* split */}
             <form onSubmit={handleAdd}>
-                <input type="text" onChange={handleChange} value={member} placeholder="Add Member..." className={styles.padding}/>
+                <input type="text" maxLength="9" onChange={handleChange} value={member} placeholder="Add Member..." className={styles.padding}/>
                 <input type="submit" value="ADD" disabled={member.trim().length===0} className={styles.padding}/>
             </form>
 
@@ -83,8 +84,32 @@ function Split(){
         }
 
         {
-            finalFlag && <button className={styles.verdictbtn} onClick={()=>setVerdictFlag(!verdictFlag)}>{!verdictFlag ? "Verdict" : "Collapse"}</button>
+            finalFlag && !isBkLoading && <button className={styles.verdictbtn} onClick={()=>setVerdictFlag(!verdictFlag)}>{!verdictFlag ? "Verdict" : "Collapse"}</button>
         }
+
+        <div>
+        {/* {
+            finalFlag && !isBkLoading && !isUploaded && <button className={styles.uploadbtn} onClick={handleUpload} >
+                <img src="https://img.icons8.com/pastel-glyph/64/000000/upload--v1.png"/>
+            </button>
+        } */}
+
+        {
+            auth && finalFlag && !isBkLoading && !isUploaded && <button className={styles.uploadbtn} onClick={handleUpload} >
+                <img src="https://img.icons8.com/pastel-glyph/64/000000/upload--v1.png" alt="upload_image" />
+            </button>
+        }
+
+        {
+            !auth && finalFlag && !isBkLoading && !isUploaded && <Link to="/auth" >
+                Login to upload your invoice
+            </Link>
+        }
+
+        {
+            isUploaded && <h3>Invoice uploaded successfully</h3>
+        }
+        </div>
         </>
     )
 }

@@ -1,0 +1,183 @@
+.container {
+    /* border: 2px solid red; */
+    width: 45%;
+    margin: auto;
+    padding: 1%;
+    margin-top: 3.2%;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container:last-child {
+    margin-bottom: 3%;
+}
+
+.smallflex {
+    display: flex;
+    /* border: 2px solid red; */
+}
+
+.smallflex > div:nth-child(1) {
+    flex-basis: 10%;
+    /* border: 2px solid red; */
+}
+
+.smallflex > div:nth-child(2) {
+    flex-basis: 90%;
+    /* border: 2px solid red; */
+}
+
+.invoicebox {
+    flex-basis: 90%;
+    /* border: 2px solid red; */
+    font-weight: bold;
+    font-size: x-large;
+    box-sizing: border-box;
+    padding-right: 10%;
+    text-align: center;
+}
+
+.imgcontainer {
+    /* border: 2px solid blue; */
+    flex-basis: 10%;
+}
+
+.imgcontainer img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 6px;
+}
+
+.datebox {
+    /* border: 2px solid red; */
+    font-weight: bold;
+    text-align: right;
+}
+
+.hash {
+    /* border: 2px solid red; */
+    font-weight: bold;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: #ced4da;
+    /* color: #adb5bd; */
+    color: #6c757d81;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    width: 100%;
+    /* border: 2px solid red; */
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: bold;
+    background-color: white;
+    margin: 0.7% auto;
+    /* margin: auto; */
+    /* border-radius: 8px; */
+}
+
+.flex > div {
+    flex-basis: 25%;
+    /* border: 2px solid green; */
+    box-sizing: border-box;
+}
+
+.grow {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.flex > div:nth-child(1), .flex > div:nth-child(2), .flex > div:nth-child(3), .flex > div:nth-child(4), .flex > div:nth-child(9), .flex > div:nth-child(10) {
+    background-color: #014e86;
+    color: white;
+    text-align: center;
+}
+
+.flex > div:nth-child(5) > div, .flex > div:nth-child(6) > div, .flex > div:nth-child(7) > div, .flex > div:nth-child(8) > div {
+    /* border: 2px solid yellow; */
+    padding: 0% 10%;
+    background-color: #e9ecef;
+}
+
+.flex > div:nth-child(1) {
+    border-top-left-radius: 6px;
+}
+
+.flex > div:nth-child(4) {
+    border-top-right-radius: 6px;
+}
+
+.flex > div:nth-child(5) > div, .flex > div:nth-child(6) > div, .flex > div:nth-child(7) > div, .flex > div:nth-child(8) > div {
+    border-radius: 6px;
+}
+
+.flex > div:nth-child(9) {
+    border-bottom-left-radius: 6px;
+}
+
+.flex > div:nth-child(10) {
+    border-bottom-right-radius: 8px;
+}
+
+.flex > div:nth-child(5) > div {
+    margin: 4% 2% 4% 4%;
+}
+
+.flex > div:nth-child(6) > div, .flex > div:nth-child(7) > div {
+    margin: 4% 2% 4% 2%;
+}
+
+.flex > div:nth-child(8) > div {
+    margin: 4% 4% 4% 2%;
+}
+
+.flex > div:nth-child(6) > div {
+    text-align: left;
+}
+
+.flex > div:nth-child(7) > div {
+    text-align: right;
+}
+
+
+
+/* ***************************************************************************************************************** */
+/* ************************************************RESPONSIVE******************************************************* */
+/* **************************************************DESIGN********************************************************* */
+/* ***************************************************************************************************************** */
+
+
+
+@media only screen and (max-width: 1050px) {
+    .container {
+        width: 80%;
+        font-size: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .datebox {
+        padding-right: 2%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .container {
+        width: 90%;
+        font-size: 12px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+    .datebox {
+        padding-right: 2%;
+    }
+}

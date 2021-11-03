@@ -1,22 +1,18 @@
-import { useContext } from "react";
-import { DataContext } from "../context/DataContextProvider";
 import stb_logo from "../images/stb_logo.png";
-import styles from "./DescriptiveBill.module.css";
+import styles from "./SearchCard.module.css";
 
-function DescriptiveBill(){
+function SearchCard({invoiceDate, invoiceId, statement}){
 
-    const{statement, invoiceId, invoiceDate, isBkLoading} = useContext(DataContext);
-    console.log(statement);
+    // if(isBkLoading){
+    //     return (
+    //         <>
+    //         <div>
+    //             <h3>...uploading</h3>
+    //         </div>
+    //         </>
+    //     )
+    // }
 
-    if(isBkLoading){
-        return (
-            <>
-            <div>
-                <h3>...uploading</h3>
-            </div>
-            </>
-        )
-    }
 
     return (
         <>
@@ -40,29 +36,29 @@ function DescriptiveBill(){
 
                 <div>
                     {
-                        statement.comodity.map((item, i)=><div key={i}>{i+1}</div>)
+                        statement.comodity_array.map((item, i)=><div key={i}>{i+1}</div>)
                     }
                 </div>
                 <div>
                     {
-                        statement.comodity.map((item, i)=><div key={i}>{item}</div>)
+                        statement.comodity_array.map((item, i)=><div key={i}>{item}</div>)
                     }
                 </div>
                 <div>
                     {
-                        statement.price.map((price, i)=><div key={i}>{"Rs. " + price}</div>)
+                        statement.price_array.map((price, i)=><div key={i}>{"Rs. " + price}</div>)
                     }
                 </div>
                 <div>
                     {       
-                        statement.paidBy.map((person, i)=><div key={i}>{person}</div>)
+                        statement.paidBy_array.map((person, i)=><div key={i}>{person}</div>)
                     }
                 </div>
 
                 <div className={styles.grow}>Total</div>
                 <div className={styles.grow}>
                     {
-                        "Rs. " + statement.price.reduce(function(a, e){
+                        "Rs. " + statement.price_array.reduce(function(a, e){
                             return Number(a) + Number(e);
                         }, 0) + ".00"
                     }
@@ -75,4 +71,4 @@ function DescriptiveBill(){
     )
 }
 
-export default DescriptiveBill;
+export default SearchCard;

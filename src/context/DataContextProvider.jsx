@@ -1,7 +1,10 @@
+import axios from "axios";
 import { createContext, useState } from "react"
 import {v4 as uuid} from "uuid";
 
 export const DataContext = createContext({
+    auth: false,
+    setAuth: ()=>{},
     membersList: [],
     setMembersList: ()=>{},
     createGroupFlag: false,
@@ -24,11 +27,25 @@ export const DataContext = createContext({
     verdictFlag: false,
     setVerdictFlag: ()=>{},
     invoiceDate: "29-02-2021",
-    setInvoiceDate: ()=>{}
+    setInvoiceDate: ()=>{},
+    isBkLoading: false,
+    setIsBkLoading: ()=>{},
+    handleUpload: ()=>{},
+    isUploaded: false,
+    setIsUploaded: ()=>{},
+    myToken: "",
+    setMyToken: ()=>{},
+    SBH: {},
+    setSBH: ()=>{}
 })
 
 function DataContextProvider({children}){
 
+    const[myToken, setMyToken] = useState("");
+
+    const[SBH, setSBH] = useState(undefined);
+
+    const[auth, setAuth] = useState(false);
     const[empty, setEmpty] = useState(false);
     const[membersList, setMembersList] = useState([]);
     const[createGroupFlag, setCreateGroupFlag] = useState(false);
@@ -45,11 +62,41 @@ function DataContextProvider({children}){
     const[invoiceDate, setInvoiceDate] = useState("");
     const[verdictFlag, setVerdictFlag] = useState(false);
 
+    const[isBkLoading, setIsBkLoading] = useState(false);
+
     const handleSettle = ()=>{
         // setSettleFlag(!settleFlag);
         setInvoiceDate(new Date().toLocaleDateString());
         setInvoiceId(uuid());
         setFinalFlag(true);
+
+        // setIsBkLoading(!isBkLoading);
+
+        // setTimeout(() => {
+        //     setIsBkLoading(false);
+        // }, 2000);
+
+        // axios({
+        //     url: "http://localhost:2244/user",
+        //     method: "post",
+        //     data: {
+        //         "first_name": "forntend",
+        //         "last_name": "frontend",
+        //         "email": "front@gmail.com",
+        //         "bill_array": [
+        //             {
+        //                 "comodity_array": ["kk", "ll"],
+        //                 "paidBy_array": ["kapil", "ajino"],
+        //                 "price": ["55", "444"],
+        //             }
+        //         ]
+        //     }
+        // }).then(function(res){
+        //     console.log(res.data);
+        //     setIsBkLoading(false);
+        // })
+
+
 
         console.log(values);
         console.log(membersList);
@@ -134,7 +181,119 @@ function DataContextProvider({children}){
         minCashFlow(graph);
     }
 
+    const[isUploaded, setIsUploaded] = useState(false);
+
+    const handleUpload = ()=>{
+        setIsBkLoading(!isBkLoading);
+
+        console.log("mytoken", myToken);
+
+        axios({
+            url: `http://localhost:2244/user/upload/${myToken}`,
+            method: "post",
+            data: {
+                "statement": {
+                    "comodity_array": statement.comodity,
+                    "paidBy_array": statement.paidBy,
+                    "price_array": statement.price
+                },
+                "hash": invoiceId,
+                "invoice_date": invoiceDate
+            }
+        }).then(function(res){
+            setIsBkLoading(false);
+            setIsUploaded(true);
+            console.log("hello");
+            console.log("res", res.data.data);
+        })
+
+        // axios({
+        //     url: "http://localhost:2244/user/upload",
+        //     method: "post",
+        //     headers: {
+        //         "Access-Control-Allow-Origin": "*",
+        //         "Authorization": "Bearer" + myToken
+        //     },
+        //     data: {
+        //         "statement": {
+        //             "comodity_array": statement.comodity,
+        //             "paidBy_array": statement.paidBy,
+        //             "price_array": statement.price
+        //         },
+        //         "hash": invoiceId,
+        //         "invoice_date": invoiceDate
+        //     }
+        // }).then(function(res){
+        //     setIsBkLoading(false);
+        //     setIsUploaded(true);
+        //     console.log("hello");
+        //     console.log("res", res.data.data);
+        // })
+    }
+
+    // const handleUpload = ()=>{
+    //     setIsBkLoading(!isBkLoading);
+    //     axios({
+    //         url: "http://localhost:2244/user",
+    //         method: "patch",
+    //         data: {
+    //             "first_name": "abc",
+    //             "last_name": "abclast",
+    //             "email": "abcabc@gmail.com",
+    //             "bill_array": [
+    //                 {
+    //                     "comodity_array": ["one", "two"],
+    //                     "paidBy_array": ["p1", "p2"],
+    //                     "price_array": ["22", "21"],
+    //                     "hash": "myhash123",
+    //                     "invoice_date": "11/01/1998"
+    //                 }
+    //             ]
+    //         },
+    //         headers: {
+    //             "Authorization": "Bearer" + "kapil"
+    //         }
+    //     }).then(function(res){
+    //         setIsBkLoading(false);
+    //         setIsUploaded(true);
+    //         console.log("hello");
+    //         console.log("res", res.data);
+    //     })
+    // }
+
+    // const handleUpload = ()=>{
+    //     setIsBkLoading(!isBkLoading);
+    //     axios({
+    //         url: "http://localhost:2244/user",
+    //         method: "get",
+    //         data: {
+    //             "first_name": "abc",
+    //             "last_name": "abclast",
+    //             "email": "abcabc@gmail.com",
+    //             "bill_array": [
+    //                 {
+    //                     "comodity_array": ["one", "two"],
+    //                     "paidBy_array": ["p1", "p2"],
+    //                     "price_array": ["22", "21"],
+    //                     "hash": "myhash123",
+    //                     "invoice_date": "11/01/1998"
+    //                 }
+    //             ]
+    //         },
+    //         headers: {
+    //             "Authorization": "Bearer" + "kapil"
+    //         }
+    //     }).then(function(res){
+    //         setIsBkLoading(false);
+    //         setIsUploaded(true);
+    //         console.log("hello");
+    //         console.log("res", res.data);
+    //     })
+    // }
+
     const value = {
+        auth: auth,
+        setAuth: setAuth,
         membersList: membersList,
         setMembersList: setMembersList,
         createGroupFlag: createGroupFlag,
@@ -157,7 +316,16 @@ function DataContextProvider({children}){
         verdictFlag: verdictFlag,
         setVerdictFlag: setVerdictFlag,
         invoiceDate: invoiceDate,
-        setInvoiceDate: setInvoiceDate
+        setInvoiceDate: setInvoiceDate,
+        isBkLoading: isBkLoading,
+        setIsBkLoading: setIsBkLoading,
+        handleUpload: handleUpload,
+        isUploaded: isUploaded,
+        setIsUploaded: setIsUploaded,
+        myToken: myToken,
+        setMyToken: setMyToken,
+        SBH: SBH,
+        setSBH: setSBH
     }
 
     return (
