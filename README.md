@@ -28,3 +28,6 @@ An end-to-end application that focuses on implementing the idea of separating a 
 * Framer-Motion
 * Material-UI
 * Material-Icons
+
+## Deployed link
+https://kapil-pant-split-the-bill.vercel.app/
