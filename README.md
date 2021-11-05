@@ -29,5 +29,13 @@ An end-to-end application that focuses on implementing the idea of separating a 
 * Material-UI
 * Material-Icons
 
+## Snapshots
+<img src="./src/images/image.png" alt="ss1" />
+<img src="./src/images/image (1).png" alt="ss1" />
+<img src="./src/images/image (2).png" alt="ss1" />
+<img src="./src/images/image (3).png" alt="ss1" />
+<img src="./src/images/image (4).png" alt="ss1" />
+<img src="./src/images/image (5).png" alt="ss1" />
+
 ## Deployed link
 https://kapil-pant-split-the-bill.vercel.app/
