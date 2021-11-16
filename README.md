@@ -38,4 +38,5 @@ An end-to-end application that focuses on implementing the idea of separating a 
 <img src="./src/images/image (5).png" alt="ss6" />
 
 ## Deployed link
-https://kapil-pant-split-the-bill.vercel.app/
+* Frontend: https://kapil-pant-split-the-bill.vercel.app/
+* Backend: Not yet deployed
