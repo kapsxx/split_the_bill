@@ -4,6 +4,22 @@
   background-size: 100% 100%; */
 }
 
+.paytm_container {
+  /* border: 2px solid red; */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  box-sizing: border-box;
+}
+
+.paytm_link {
+  box-sizing: border-box;
+}
+
+.paytm_link:hover {
+  border-bottom: 4px solid #48cae4ad;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
